@@ -1,8 +1,10 @@
 import styled from "styled-components";
-
-const Title = styled.h1`
+interface ITitle {
+  fontSize?: number;
+}
+const Title = styled.h1<ITitle>`
   color: ${({ theme }) => theme.colors.main};
-  font-size: 42px;
+  font-size: ${({ fontSize }) => fontSize ?? 42}px;
   font-weight: 800;
   line-height: 1.2em;
   margin: 0;
