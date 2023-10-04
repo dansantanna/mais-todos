@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import renderWithProviders from "helpers/renderWithProviders/indext";
+import renderWithProviders from "helpers/renderWithProviders";
 import Cart from ".";
 
 describe("<Cart />", () => {

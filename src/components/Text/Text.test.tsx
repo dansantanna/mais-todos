@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import Text from ".";
-import renderWithProviders from "helpers/renderWithProviders/indext";
+import renderWithProviders from "helpers/renderWithProviders";
 
 describe("<Text />", () => {
   it("Should render children text", () => {
