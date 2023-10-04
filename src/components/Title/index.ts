@@ -2,7 +2,7 @@ import styled from "styled-components";
 interface ITitle {
   fontSize?: number;
 }
-const Title = styled.h1<ITitle>`
+const Title = styled.span<ITitle>`
   color: ${({ theme }) => theme.colors.main};
   font-size: ${({ fontSize }) => fontSize ?? 42}px;
   font-weight: 800;

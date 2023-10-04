@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.main};
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 400;
   width: fit-content;
   line-height: 1em;
   color: #ffffff;
-  border-radius: 100px 100px 100px 100px;
+  border-radius: 98px;
   padding: 16px 55px 16px 55px;
   cursor: pointer;
   border: none;
