@@ -1,4 +1,4 @@
-import Text from ".";
+import Title from ".";
 
 export default {
   title: "components/Title",
@@ -9,5 +9,5 @@ export default {
 };
 
 export const Component = ({ text }: { text: string }) => {
-  return <Text>{text}</Text>;
+  return <Title>{text}</Title>;
 };
