@@ -6,7 +6,6 @@ import IProduct from "types/IProduct";
 import * as S from "./CartItem.styleds";
 
 export interface CartItemProps extends IProduct {
-  quantity: number;
   onChange: (quantity: number) => void;
   onRemove: () => void;
 }

@@ -7,7 +7,6 @@ import * as S from "./Product.styleds";
 import IProduct from "types/IProduct";
 
 export interface ProductProps extends IProduct {
-  quantity: number;
   onEnter: () => void;
   onChange: (quantity: number) => void;
   onAdd: () => void;
