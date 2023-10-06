@@ -4,13 +4,10 @@ import formatToCurrency from "helpers/formatToCurrency";
 import Text from "components/Text";
 import ControlNumber from "components/ControlNumber";
 import * as S from "./Product.styleds";
+import IProduct from "types/IProduct";
 
-export interface ProductProps {
-  title: string;
-  price: number;
-  image: string;
+export interface ProductProps extends IProduct {
   quantity: number;
-  description: string;
   onEnter: () => void;
   onChange: (quantity: number) => void;
   onAdd: () => void;
