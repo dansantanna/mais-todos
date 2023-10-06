@@ -24,10 +24,8 @@ const Product = ({
 }: ProductProps) => {
   return (
     <S.CardStyled onClick={onEnter}>
-      <S.Line>
-        <Title fontSize={22}>{title}</Title>
-        <S.Price>{formatToCurrency(price)}</S.Price>
-      </S.Line>
+      <Title fontSize={22}>{title}</Title>
+      <S.Price>{formatToCurrency(price)}</S.Price>
       <S.Image src={image} alt={title} />
       <S.Description>
         <Text>{description}</Text>

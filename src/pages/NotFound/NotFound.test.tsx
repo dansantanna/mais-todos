@@ -4,8 +4,8 @@ import renderWithProviders from "helpers/renderWithProviders";
 import NotFound from ".";
 
 describe("<NotFound />", () => {
-  it("Should render cart page", () => {
+  it("Should render 404 page", () => {
     renderWithProviders(<NotFound />);
-    expect(screen.getByText("Página inexistente")).toBeInTheDocument();
+    expect(screen.getByTestId("error-lottie")).toBeInTheDocument();
   });
 });

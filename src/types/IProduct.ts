@@ -5,4 +5,9 @@ export default interface IProduct {
   image: string;
   description: string;
   quantity: number;
+  category?: string;
+  rating?: {
+    rate: number;
+    count: number;
+  };
 }

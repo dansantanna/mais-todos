@@ -1,3 +1,5 @@
+import { useLocation, Link } from "react-router-dom";
+
 import * as S from "./Navbar.styleds";
 
 export interface NavbarProps {
@@ -9,7 +11,8 @@ export interface NavbarProps {
 }
 
 const Navbar = ({ items, currentRoute }: NavbarProps) => {
-  const currentBrowserRoute = window.location.pathname;
+  const location = useLocation();
+  const currentBrowserRoute = location.pathname;
   const current = currentRoute ?? currentBrowserRoute;
 
   return (
@@ -23,7 +26,7 @@ const Navbar = ({ items, currentRoute }: NavbarProps) => {
             data-active={current === item.route}
             key={item.route}
           >
-            <a href={item.route}>{item.text}</a>
+            <Link to={item.route}>{item.text}</Link>
           </S.Item>
         ))}
       </S.List>

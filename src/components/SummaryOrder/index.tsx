@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 
 import Button from "components/Button";
 import Text from "components/Text";
@@ -34,9 +35,9 @@ const SummaryOrder = ({ items, checkoutRoute }: SummaryOrderProps) => {
       <S.Total>
         Total: <Text>{formatToCurrency(total)}</Text>
       </S.Total>
-      <a href={checkoutRoute}>
+      <Link to={checkoutRoute}>
         <Button>Realizar Pagamento</Button>
-      </a>
+      </Link>
     </S.Wrapper>
   );
 };

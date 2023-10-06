@@ -29,6 +29,7 @@ export const Image = styled.img`
 
 export const Price = styled(Title).attrs({ fontSize: 18 })`
   color: ${({ theme }) => theme.colors.text};
+  margin: 16px 0;
 `;
 
 export const Description = styled.div`

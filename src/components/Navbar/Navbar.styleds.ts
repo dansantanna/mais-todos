@@ -21,6 +21,7 @@ export const LogoMobile = styled.img.attrs({
 `;
 
 export const Wrapper = styled.nav`
+  z-index: 1;
   width: 100%;
   height: 92px;
   box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.15);

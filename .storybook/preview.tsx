@@ -1,13 +1,19 @@
 import React from "react";
 import type { Preview } from "@storybook/react";
-import Application from "../src/components/Application";
+import { ThemeProvider } from "styled-components";
+import theme from "../src/helpers/themes";
+import GlobalStyle from "../src/helpers/GlobalStyle";
+import { BrowserRouter } from "react-router-dom";
 
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <Application>
-        <Story />
-      </Application>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Story />
+        </ThemeProvider>
+      </BrowserRouter>
     ),
   ],
   parameters: {

@@ -1,11 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
 
 import Application from "components/Application";
-import routes from "helpers/routes";
 import reportWebVitals from "./reportWebVitals";
-import Navbar from "components/Navbar";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,15 +10,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Application>
-      <Navbar
-        items={[
-          { text: "Produtos", route: "/" },
-          { text: "Carrrinho", route: "/cart" },
-        ]}
-      />
-      <RouterProvider router={routes} />
-    </Application>
+    <Application />
   </React.StrictMode>
 );
 
