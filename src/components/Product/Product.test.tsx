@@ -3,6 +3,7 @@ import Product from ".";
 import renderWithProviders from "helpers/renderWithProviders";
 
 const mockProduct = {
+  id: "0001",
   title: "Product Title",
   description: "Product Description",
   quantity: 2,

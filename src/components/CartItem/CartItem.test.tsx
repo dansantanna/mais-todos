@@ -4,6 +4,7 @@ import CartItem from ".";
 import renderWithProviders from "helpers/renderWithProviders";
 
 const mockProduct = {
+  id: "00001",
   title: "Test Product",
   image: "/test-image.jpg",
   description: "Test Description",
