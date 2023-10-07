@@ -52,8 +52,7 @@ describe("<ControlNumber />", () => {
   it('disables the "-" button when value is at its minimum', () => {
     renderWithProviders(<ControlNumber min={1} onChange={mockOnChange} />);
 
-    const minusButton = screen.getByText("-");
-    fireEvent.click(minusButton);
+    fireEvent.click(screen.getByText("-"));
 
     expect(mockOnChange).not.toHaveBeenCalled();
   });

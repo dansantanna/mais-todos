@@ -22,6 +22,13 @@ const isSecondary = css`
   }
 `;
 
+const isDisabled = css`
+  color: #666;
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+    rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+`;
+
 const Button = styled.button<ButtonProps>`
   font-size: 16px;
   font-weight: 400;
@@ -35,6 +42,9 @@ const Button = styled.button<ButtonProps>`
 
   ${({ variant }) => variant === "primary" && isPrimary}
   ${({ variant }) => variant === "secondary" && isSecondary}
+  &:disabled {
+    ${isDisabled}
+  }
 `;
 
 Button.defaultProps = {

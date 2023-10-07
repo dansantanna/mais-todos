@@ -21,7 +21,7 @@ const useCart = create<CartState>()(
           }));
         },
         updateQuantity: (product, quantity) => {
-          const { products } = get();
+          const products = [...get().products];
           const indexProduct = products.findIndex(
             (item) => item.id === product.id
           );

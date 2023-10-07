@@ -1,7 +1,12 @@
 import IProduct from "types/IProduct";
 
-export const fetchProducts = async (): Promise<IProduct[]> => {
-  const response = await fetch(`${process.env.REACT_APP_APIURL}/products`);
+export const fetchProducts = async (
+  id?: IProduct["id"]
+): Promise<IProduct[]> => {
+  const response = await fetch(
+    `${process.env.REACT_APP_APIURL}/products/${id ?? ""}`
+  );
   const data = await response.json();
-  return data;
+  if (Array.isArray(data)) return data;
+  else return [data];
 };
