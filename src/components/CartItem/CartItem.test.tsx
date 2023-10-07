@@ -12,38 +12,70 @@ const mockProduct = {
   quantity: 2,
 };
 
-test("renders CartItem component correctly", () => {
-  renderWithProviders(
-    <CartItem {...mockProduct} onChange={() => {}} onRemove={() => {}} />
-  );
+describe("<CartItem />", () => {
+  it("Should render CartItem component correctly", () => {
+    renderWithProviders(
+      <CartItem
+        {...mockProduct}
+        onEnter={jest.fn()}
+        onChange={jest.fn()}
+        onRemove={jest.fn()}
+      />
+    );
 
-  expect(screen.getByText("Test Product")).toBeInTheDocument();
-  expect(screen.getByText("Test Description")).toBeInTheDocument();
-  expect(screen.getByAltText("Test Product")).toBeInTheDocument();
-});
+    expect(screen.getByText("Test Product")).toBeInTheDocument();
+    expect(screen.getByText("Test Description")).toBeInTheDocument();
+    expect(screen.getByAltText("Test Product")).toBeInTheDocument();
+  });
 
-test("calls onChange when the quantity is changed", () => {
-  const onChangeMock = jest.fn();
+  it("Should call onChange when the quantity is changed", () => {
+    const onChangeMock = jest.fn();
 
-  renderWithProviders(
-    <CartItem {...mockProduct} onChange={onChangeMock} onRemove={() => {}} />
-  );
+    renderWithProviders(
+      <CartItem
+        {...mockProduct}
+        onEnter={jest.fn()}
+        onChange={onChangeMock}
+        onRemove={jest.fn()}
+      />
+    );
 
-  const input = screen.getByDisplayValue("2");
-  fireEvent.change(input, { target: { value: "3" } });
+    const input = screen.getByDisplayValue("2");
+    fireEvent.change(input, { target: { value: "3" } });
 
-  expect(onChangeMock).toHaveBeenCalledWith(3);
-});
+    expect(onChangeMock).toHaveBeenCalledWith(3);
+  });
 
-test("calls onRemove when the Remove button is clicked", () => {
-  const onRemoveMock = jest.fn();
+  it("Should call onRemove when the Remove button is clicked", () => {
+    const onRemoveMock = jest.fn();
 
-  renderWithProviders(
-    <CartItem {...mockProduct} onChange={() => {}} onRemove={onRemoveMock} />
-  );
+    renderWithProviders(
+      <CartItem
+        {...mockProduct}
+        onEnter={jest.fn()}
+        onChange={jest.fn()}
+        onRemove={onRemoveMock}
+      />
+    );
 
-  const removeButton = screen.getByText("Remover");
-  fireEvent.click(removeButton);
+    fireEvent.click(screen.getByText("Remover"));
 
-  expect(onRemoveMock).toHaveBeenCalled();
+    expect(onRemoveMock).toHaveBeenCalled();
+  });
+
+  it("Should call onEnter when user click", () => {
+    const onEnter = jest.fn();
+
+    renderWithProviders(
+      <CartItem
+        {...mockProduct}
+        onEnter={onEnter}
+        onChange={jest.fn()}
+        onRemove={jest.fn()}
+      />
+    );
+
+    fireEvent.click(screen.getByText("Test Product"));
+    expect(onEnter).toHaveBeenCalled();
+  });
 });

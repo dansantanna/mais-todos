@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import useCart, { CartState } from "hooks/useCart"; // Substitua pelo caminho real do seu hook
 
@@ -6,8 +6,14 @@ import Cart from ".";
 import renderWithProviders from "helpers/renderWithProviders";
 
 jest.mock("hooks/useCart");
+const mockNavigate = jest.fn();
 
-describe("Cart", () => {
+jest.mock("react-router-dom", () => ({
+  ...(jest.requireActual("react-router-dom") as any),
+  useNavigate: () => mockNavigate,
+}));
+
+describe("<Cart />", () => {
   const mockCartState: CartState = {
     products: [
       {
@@ -58,5 +64,23 @@ describe("Cart", () => {
 
     expect(removeProduct).toHaveBeenCalledWith(mockCartState.products[0]);
     expect(updateQuantity).toBeCalled();
+  });
+
+  it("Should redirect the user when he clicks on the CartItem", () => {
+    renderWithProviders(<Cart />);
+    fireEvent.click(screen.getByText("Product 1"));
+    expect(mockNavigate).toBeCalled();
+  });
+
+  it("Should render empty state when there are no products", () => {
+    (useCart as unknown as jest.Mock).mockReturnValue({
+      products: [],
+      removeProduct: jest.fn(),
+      updateQuantity: jest.fn(),
+      addProduct: jest.fn(),
+    });
+
+    renderWithProviders(<Cart />);
+    expect(screen.getByTestId("empty-lottie")).toBeInTheDocument();
   });
 });

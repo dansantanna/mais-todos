@@ -16,7 +16,7 @@ const isPrimary = css`
 
 const isSecondary = css`
   color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.secondary};
   &:hover {
     opacity: 0.9;
   }

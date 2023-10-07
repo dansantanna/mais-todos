@@ -7,16 +7,15 @@ export const Wrapper = styled.div`
   padding: 8px;
   display: flex;
   max-height: 30px;
-  width: 100px;
+  width: 80px;
 `;
 
 export const Input = styled.input.attrs({ type: "number" })`
   width: 100%;
   border: none;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
   color: ${({ theme }) => theme.colors.text};
-  font-size: 24px;
   font-weight: 300;
   line-height: 1.5em;
   text-align: center;
@@ -26,7 +25,7 @@ export const Button = styled.button`
   outline: none;
   background: white;
   border: none;
-  font-size: 40px;
+  font-size: 24px;
   color: ${({ theme }) => theme.colors.dark};
   cursor: pointer;
   display: flex;

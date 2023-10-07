@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
     max-width: fit-content;
     justify-content: center;
   }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
 `;
 
 export const Image = styled.img`
