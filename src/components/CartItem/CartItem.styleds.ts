@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   border-bottom: 0.5px solid ${({ theme }) => theme.colors.main};
   padding: 16px 0;
   gap: 16px;
+  max-width: 800px;
   > * {
     flex: 1;
     display: flex;

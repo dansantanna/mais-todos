@@ -4,10 +4,17 @@ import useProducts from "hooks/useProducts";
 import * as S from "./Products.styleds";
 import Product from "components/Product";
 import Title from "components/Title";
+import useCart from "hooks/useCart";
+import IProduct from "types/IProduct";
 
 const Products = () => {
   const navigate = useNavigate();
-  const { products, isLoading, isError, onChangeQuantity } = useProducts();
+  const { products, isLoading, isError } = useProducts();
+  const { addProduct, products: cartItems, removeProduct } = useCart();
+
+  const isAdded = (id: IProduct["id"]): boolean => {
+    return Boolean(cartItems.find((item) => item.id === id));
+  };
 
   if (isError) {
     return (
@@ -32,11 +39,12 @@ const Products = () => {
     <S.Wrapper>
       {products?.map((product) => (
         <Product
+          isAdded={isAdded(product.id)}
           key={product.id}
           {...product}
-          onAdd={() => {}}
-          onChange={(quantity) => onChangeQuantity(product.id, quantity)}
           onEnter={() => navigate(`/product/${product.id}`)}
+          onAdd={() => addProduct(product)}
+          onRemove={() => removeProduct(product)}
         />
       ))}
     </S.Wrapper>

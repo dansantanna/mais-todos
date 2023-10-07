@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { Link } from "react-router-dom";
 
 import Button from "components/Button";
@@ -14,10 +13,9 @@ export interface SummaryOrderProps {
 }
 
 const SummaryOrder = ({ items, checkoutRoute }: SummaryOrderProps) => {
-  const total = useMemo(
-    () =>
-      items.reduce((sum, product) => sum + product.price * product.quantity, 0),
-    [items]
+  const total = items.reduce(
+    (sum, product) => sum + product.price * (product.quantity ?? 1),
+    0
   );
 
   return (
@@ -26,7 +24,7 @@ const SummaryOrder = ({ items, checkoutRoute }: SummaryOrderProps) => {
       <S.ListProducts>
         {items.map((product) => (
           <Text key={product.id}>
-            {product.quantity}x {product.title}
+            {product.quantity ?? 1}x {product.title}
             <span>{formatToCurrency(product.price)}</span>
           </Text>
         ))}

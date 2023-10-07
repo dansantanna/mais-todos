@@ -1,3 +1,4 @@
+import Button from "components/Button";
 import Card from "components/Card";
 import Title from "components/Title";
 import { styled } from "styled-components";
@@ -8,6 +9,9 @@ export const CardStyled = styled(Card)`
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px,
       rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+  }
+  ${Button} {
+    width: 100%;
   }
 `;
 
@@ -25,6 +29,8 @@ export const Image = styled.img`
   max-height: 300px;
   object-fit: contain;
   margin: 16px 0;
+  height: 100%;
+  align-self: center;
 `;
 
 export const Price = styled(Title).attrs({ fontSize: 18 })`
@@ -42,4 +48,5 @@ export const Description = styled.div`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: auto;
 `;

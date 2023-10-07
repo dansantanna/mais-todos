@@ -30,7 +30,7 @@ export const Wrapper = styled.nav`
   justify-content: center;
   position: sticky;
   top: 0;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const List = styled.ul`

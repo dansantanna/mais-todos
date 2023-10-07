@@ -15,19 +15,7 @@ const useProducts = () => {
     setProducts(data ?? []);
   }, [data]);
 
-  const onChangeQuantity = (
-    id: IProduct["id"],
-    quantity: IProduct["quantity"]
-  ) => {
-    const items = [...products];
-    const indexProduct = items.findIndex((product) => product.id === id);
-    if (indexProduct > -1) {
-      items[indexProduct].quantity = quantity;
-      setProducts(items);
-    }
-  };
-
-  return { products, isLoading, onChangeQuantity, isError };
+  return { products, isLoading, isError };
 };
 
 export default useProducts;

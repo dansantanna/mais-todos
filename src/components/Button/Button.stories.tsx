@@ -9,5 +9,10 @@ export default {
 };
 
 export const Component = ({ text }: { text: string }) => {
-  return <Button>Click here</Button>;
+  return (
+    <div>
+      <Button>{text}</Button>
+      <Button variant="secondary">{text}</Button>
+    </div>
+  );
 };

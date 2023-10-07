@@ -19,6 +19,13 @@ const mockItems = [
     price: 15.99,
     quantity: 1,
   },
+  {
+    id: "3",
+    image: "",
+    title: "Test Product 3",
+    description: "",
+    price: 15.99,
+  },
 ];
 
 test("renders SummaryOrder component correctly", () => {
@@ -29,7 +36,7 @@ test("renders SummaryOrder component correctly", () => {
   expect(screen.getByText("Detalhes do Pedido")).toBeInTheDocument();
   expect(screen.getByText("2x Test Product 1")).toBeInTheDocument();
   expect(screen.getByText("1x Test Product 2")).toBeInTheDocument();
-  expect(screen.getByText(/37,97/)).toBeInTheDocument();
+  expect(screen.getByText(/53,96/)).toBeInTheDocument();
   expect(screen.getByText("Realizar Pagamento")).toBeInTheDocument();
 });
 
@@ -38,5 +45,5 @@ test("calculates the total price correctly", () => {
     <SummaryOrder items={mockItems} checkoutRoute="/checkout" />
   );
 
-  expect(screen.getByText(/37,97/)).toBeInTheDocument();
+  expect(screen.getByText(/53,96/)).toBeInTheDocument();
 });

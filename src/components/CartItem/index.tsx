@@ -29,7 +29,9 @@ const CartItem = ({
       <Title fontSize={18}>{formatToCurrency(price)}</Title>
       <S.Actions>
         <ControlNumber value={quantity} onChange={(evt) => onChange(evt)} />
-        <Button onClick={onRemove}>Remover</Button>
+        <Button variant="secondary" onClick={onRemove}>
+          Remover
+        </Button>
       </S.Actions>
     </S.Wrapper>
   );

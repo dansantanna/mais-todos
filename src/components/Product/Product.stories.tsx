@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Product, { ProductProps } from ".";
 
 export default {
@@ -14,17 +13,6 @@ export default {
   },
 };
 
-export const Component = ({ quantity, onChange, ...args }: ProductProps) => {
-  const [quantityState, setQuantityState] = useState(quantity);
-
-  useEffect(() => {
-    setQuantityState(quantity);
-  }, [quantity]);
-
-  const handleChange = (value: number) => {
-    onChange(value);
-    setQuantityState(value);
-  };
-
-  return <Product {...args} quantity={quantityState} onChange={handleChange} />;
+export const Component = (args: ProductProps) => {
+  return <Product {...args} />;
 };

@@ -11,8 +11,8 @@ const mockProduct = {
   image: "product.jpg",
 };
 
-const mockOnChange = jest.fn();
 const mockOnAdd = jest.fn();
+const mockOnRemove = jest.fn();
 const mockOnEnter = jest.fn();
 
 describe("<Product />", () => {
@@ -22,8 +22,9 @@ describe("<Product />", () => {
     renderWithProviders(
       <Product
         {...mockProduct}
-        onChange={mockOnChange}
+        isAdded={false}
         onAdd={mockOnAdd}
+        onRemove={mockOnRemove}
         onEnter={mockOnEnter}
       />
     );
@@ -31,15 +32,16 @@ describe("<Product />", () => {
     expect(screen.getByText(mockProduct.title)).toBeInTheDocument();
     expect(screen.getByText(mockProduct.description)).toBeInTheDocument();
     expect(screen.getByAltText(mockProduct.title)).toBeInTheDocument();
-    expect(screen.getByText("Add")).toBeInTheDocument();
+    expect(screen.getByText("Adicionar")).toBeInTheDocument();
   });
 
   it("Should call onEnter when card is clicked", () => {
     renderWithProviders(
       <Product
         {...mockProduct}
-        onChange={mockOnChange}
+        onRemove={mockOnRemove}
         onAdd={mockOnAdd}
+        isAdded
         onEnter={mockOnEnter}
       />
     );
@@ -50,39 +52,37 @@ describe("<Product />", () => {
     expect(mockOnEnter).toHaveBeenCalledTimes(1);
   });
 
-  it("Should call onChange when ControlNumber is used", () => {
+  it('Should call onAdd when "Adicionar" button is clicked', () => {
     renderWithProviders(
       <Product
+        isAdded={false}
+        onRemove={mockOnRemove}
         {...mockProduct}
-        onChange={mockOnChange}
         onAdd={mockOnAdd}
         onEnter={mockOnEnter}
       />
     );
 
-    const decreaseButton = screen.getByText("-");
-    const increaseButton = screen.getByText("+");
-
-    fireEvent.click(decreaseButton);
-    expect(mockOnChange).toHaveBeenCalledWith(1);
-
-    fireEvent.click(increaseButton);
-    expect(mockOnChange).toHaveBeenCalledWith(3);
-  });
-
-  it('Should call onAdd when "Add" button is clicked', () => {
-    renderWithProviders(
-      <Product
-        {...mockProduct}
-        onChange={mockOnChange}
-        onAdd={mockOnAdd}
-        onEnter={mockOnEnter}
-      />
-    );
-
-    const addButton = screen.getByText("Add");
+    const addButton = screen.getByText("Adicionar");
     fireEvent.click(addButton);
 
     expect(mockOnAdd).toHaveBeenCalledTimes(1);
+  });
+
+  it('Should call onRemove when "Remover" button is clicked', () => {
+    renderWithProviders(
+      <Product
+        isAdded
+        onRemove={mockOnRemove}
+        {...mockProduct}
+        onAdd={mockOnAdd}
+        onEnter={mockOnEnter}
+      />
+    );
+
+    const addButton = screen.getByText("Remover");
+    fireEvent.click(addButton);
+
+    expect(mockOnRemove).toHaveBeenCalledTimes(1);
   });
 });

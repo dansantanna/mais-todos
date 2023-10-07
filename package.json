@@ -19,12 +19,14 @@
     "react-scripts": "5.0.1",
     "styled-components": "^6.0.8",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^4.4.3"
   },
   "jest": {
     "collectCoverageFrom": [
       "!src/**/*.stories.*",
-      "!src/**/*.json"
+      "!src/**/*.json",
+      "!src/types/**"
     ]
   },
   "scripts": {

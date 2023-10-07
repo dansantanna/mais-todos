@@ -40,6 +40,15 @@ describe("<ControlNumber />", () => {
     expect(mockOnChange).toHaveBeenCalledWith(3);
   });
 
+  it("Should not update the value when input is changed to less than minimum", () => {
+    renderWithProviders(<ControlNumber onChange={mockOnChange} />);
+
+    const input = screen.getByDisplayValue("1");
+    fireEvent.change(input, { target: { value: "0" } });
+
+    expect(mockOnChange).not.toBeCalled();
+  });
+
   it('disables the "-" button when value is at its minimum', () => {
     renderWithProviders(<ControlNumber min={1} onChange={mockOnChange} />);
 

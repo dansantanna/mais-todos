@@ -4,7 +4,7 @@ export default interface IProduct {
   price: number;
   image: string;
   description: string;
-  quantity: number;
+  quantity?: number;
   category?: string;
   rating?: {
     rate: number;
