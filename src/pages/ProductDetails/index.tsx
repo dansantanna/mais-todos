@@ -9,6 +9,7 @@ import ControlNumber from "components/ControlNumber";
 import Button from "components/Button";
 import useCart from "hooks/useCart";
 import IProduct from "types/IProduct";
+import formatToCurrency from "helpers/formatToCurrency";
 
 interface IProductState extends IProduct {
   isAdded?: boolean;
@@ -60,6 +61,7 @@ const ProductDetails = () => {
       <S.Image alt={product.title} src={product.image} />
       <S.Attributes>
         <Title fontSize={24}>{product.title}</Title>
+        <Title fontSize={20}>{formatToCurrency(product.price)}</Title>
         <Text>{product.description}</Text>
         <Text>
           Categoria: <b>{product.category}</b>
