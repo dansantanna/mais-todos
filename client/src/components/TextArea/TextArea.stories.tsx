@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Input, { InputProps } from ".";
+import TextArea, { TextAreaProps } from ".";
 
 export default {
-  title: "components/Input",
-  component: Input,
+  title: "components/TextArea",
+  component: TextArea,
   args: {
-    label: "Input label text",
-    name: "storybook-input",
+    label: "TextArea label text",
+    name: "storybook-textArea",
     value: "",
     required: false,
   },
@@ -17,7 +17,7 @@ export default {
   },
 };
 
-export const Component = ({ value, onChange, ...args }: InputProps) => {
+export const Component = ({ value, onChange, ...args }: TextAreaProps) => {
   const [valueState, setValue] = useState(value);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const Component = ({ value, onChange, ...args }: InputProps) => {
   }, [value]);
 
   return (
-    <Input
+    <TextArea
       value={valueState}
       onChange={(evt) => {
         setValue(evt.target.value);
