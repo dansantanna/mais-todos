@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import { renderHook, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import useProducts from ".";
-import { ReactNode } from "react";
 import { fetchProducts } from "services/fakeStore";
 
 const mockData = [

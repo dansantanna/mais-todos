@@ -120,4 +120,26 @@ describe("useCart", () => {
     expect(result.current.products).toHaveLength(1);
     expect(result.current.products[0].id).toBe("2");
   });
+
+  it("should clear cart", () => {
+    const { result } = renderHook(() => useCart());
+
+    act(() => {
+      result.current.addProduct({
+        id: "1",
+        title: "Product 1",
+        quantity: 1,
+        description: "",
+        image: "",
+        price: 1,
+      });
+    });
+
+    expect(result.current.products).toHaveLength(2);
+    expect(result.current.products[0].title).toBe("Product 1");
+
+    act(() => result.current.clearProducts());
+
+    expect(result.current.products).toHaveLength(0);
+  });
 });

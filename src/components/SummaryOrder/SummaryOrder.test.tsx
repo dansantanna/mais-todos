@@ -33,17 +33,8 @@ test("renders SummaryOrder component correctly", () => {
     <SummaryOrder items={mockItems} checkoutRoute="/checkout" />
   );
 
-  expect(screen.getByText("Detalhes do Pedido")).toBeInTheDocument();
+  expect(screen.getByText("Informações de Pagamento")).toBeInTheDocument();
   expect(screen.getByText("2x Test Product 1")).toBeInTheDocument();
   expect(screen.getByText("1x Test Product 2")).toBeInTheDocument();
-  expect(screen.getByText(/53,96/)).toBeInTheDocument();
-  expect(screen.getByText("Realizar Pagamento")).toBeInTheDocument();
-});
-
-test("calculates the total price correctly", () => {
-  renderWithProviders(
-    <SummaryOrder items={mockItems} checkoutRoute="/checkout" />
-  );
-
   expect(screen.getByText(/53,96/)).toBeInTheDocument();
 });

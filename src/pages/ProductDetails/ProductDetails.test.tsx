@@ -36,6 +36,7 @@ describe("<ProductDetails />", () => {
     ],
     removeProduct: jest.fn(),
     updateQuantity: jest.fn(),
+    clearProducts: jest.fn(),
     addProduct: jest.fn(),
   };
   beforeEach(() => {

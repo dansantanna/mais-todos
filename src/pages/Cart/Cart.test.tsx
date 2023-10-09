@@ -1,6 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import useCart, { CartState } from "hooks/useCart"; // Substitua pelo caminho real do seu hook
+import useCart, { CartState } from "hooks/useCart";
 
 import Cart from ".";
 import renderWithProviders from "helpers/renderWithProviders";
@@ -9,7 +9,7 @@ jest.mock("hooks/useCart");
 const mockNavigate = jest.fn();
 
 jest.mock("react-router-dom", () => ({
-  ...(jest.requireActual("react-router-dom") as any),
+  ...jest.requireActual("react-router-dom"),
   useNavigate: () => mockNavigate,
 }));
 
@@ -36,6 +36,7 @@ describe("<Cart />", () => {
     removeProduct: jest.fn(),
     updateQuantity: jest.fn(),
     addProduct: jest.fn(),
+    clearProducts: jest.fn(),
   };
 
   beforeEach(() => {
