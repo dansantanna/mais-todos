@@ -1,6 +1,7 @@
 {
-  "name": "mais-todos",
+  "name": "mais-todos-client",
   "version": "0.1.0",
+  "author": "Daniel Sant'Anna <danielcarlossantanna@gmail.com>",
   "private": true,
   "dependencies": {
     "@stripe/react-stripe-js": "^2.3.1",

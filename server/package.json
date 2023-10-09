@@ -1,6 +1,7 @@
 {
   "name": "mais-todos-server",
   "version": "1.0.0",
+  "author": "Daniel Sant'Anna <danielcarlossantanna@gmail.com>",
   "description": "API to manage products",
   "main": "index.js",
   "scripts": {
@@ -11,7 +12,6 @@
     "knex:seed": "knex --knexfile src/database/knexfile.ts seed:run"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.14",
