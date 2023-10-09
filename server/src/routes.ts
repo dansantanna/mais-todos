@@ -10,7 +10,8 @@ routes.get("/", (_: Request, response: Response) => {
 // Product endpoints
 routes.get("/products", controller.getAll);
 routes.get("/products/:id", controller.getById);
+routes.post("/products", controller.create);
 routes.put("/products/:id", controller.updateById);
-routes.put("/products/:id", controller.removeById);
+routes.delete("/products/:id", controller.removeById);
 
 export default routes;
