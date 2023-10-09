@@ -13,8 +13,8 @@ Este é um projeto de aplicação web que tem como objetivo fornecer uma platafo
 
 Antes de executar a aplicação, certifique-se de ter os seguintes pré-requisitos instalados:
 
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/) (gerenciador de pacotes JavaScript)
+- [Node.js v18.17.1](https://nodejs.org/)
+- [npm 10.2.0](https://www.npmjs.com/) (gerenciador de pacotes JavaScript)
 
 ## Instalação Manual
 
