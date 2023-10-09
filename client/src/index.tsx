@@ -16,7 +16,6 @@ import GlobalStyle from "helpers/GlobalStyle";
 import Navbar from "components/Navbar";
 
 import reportWebVitals from "./reportWebVitals";
-import Contact from "pages/Contact";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -43,7 +42,6 @@ root.render(
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/successful-payment" element={<SuccessfulPayment />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
