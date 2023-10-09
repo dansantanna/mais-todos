@@ -8,6 +8,7 @@ export default {
     label: "Input label text",
     name: "storybook-input",
     value: "",
+    error: "",
     required: false,
   },
   argTypes: {

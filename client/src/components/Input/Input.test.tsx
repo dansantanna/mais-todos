@@ -24,4 +24,12 @@ describe("<Input />", () => {
     userEvent.type(screen.getByLabelText("Test Label"), "Hello, World!");
     expect(onChangeMock).toHaveBeenCalled();
   });
+
+  it("Should render error message", () => {
+    const errorMessage = "Error Message";
+    renderWithProviders(
+      <Input name="test" label="Test Label" error={errorMessage} />
+    );
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
+  });
 });

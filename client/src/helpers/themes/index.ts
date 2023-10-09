@@ -6,6 +6,7 @@ const theme = {
     secondary: "#584696",
     disabled: "#324a6d",
     white: "#fff",
+    error: "#d00",
   },
 };
 

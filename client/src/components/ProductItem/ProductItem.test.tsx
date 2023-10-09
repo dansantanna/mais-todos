@@ -1,6 +1,6 @@
 import { screen, fireEvent } from "@testing-library/react";
 
-import CartItem from ".";
+import ProductItem from ".";
 import renderWithProviders from "helpers/renderWithProviders";
 
 const mockProduct = {
@@ -12,10 +12,10 @@ const mockProduct = {
   quantity: 2,
 };
 
-describe("<CartItem />", () => {
-  it("Should render CartItem component correctly", () => {
+describe("<ProductItem />", () => {
+  it("Should render ProductItem component correctly", () => {
     renderWithProviders(
-      <CartItem
+      <ProductItem
         {...mockProduct}
         onEnter={jest.fn()}
         onChange={jest.fn()}
@@ -32,7 +32,7 @@ describe("<CartItem />", () => {
     const onChangeMock = jest.fn();
 
     renderWithProviders(
-      <CartItem
+      <ProductItem
         {...mockProduct}
         onEnter={jest.fn()}
         onChange={onChangeMock}
@@ -50,7 +50,7 @@ describe("<CartItem />", () => {
     const onRemoveMock = jest.fn();
 
     renderWithProviders(
-      <CartItem
+      <ProductItem
         {...mockProduct}
         onEnter={jest.fn()}
         onChange={jest.fn()}
@@ -67,7 +67,7 @@ describe("<CartItem />", () => {
     const onEnter = jest.fn();
 
     renderWithProviders(
-      <CartItem
+      <ProductItem
         {...mockProduct}
         onEnter={onEnter}
         onChange={jest.fn()}

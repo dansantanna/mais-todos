@@ -16,7 +16,7 @@ jest.mock("hooks/useProducts", () => ({
   default: jest.fn(),
 }));
 
-jest.mock("services/fakeStore", () => {
+jest.mock("services/api", () => {
   return {
     fetchProducts: jest.fn(),
   };
@@ -100,10 +100,6 @@ describe("<ProductDetails />", () => {
       description: "Description 1",
       category: "Category 1",
       quantity: 1,
-      rating: {
-        rate: 4,
-        count: 10,
-      },
     };
 
     (useProducts as jest.Mock).mockReturnValue({
@@ -129,8 +125,6 @@ describe("<ProductDetails />", () => {
     expect(screen.getByText(product.title)).toBeInTheDocument();
     expect(screen.getByText(product.description)).toBeInTheDocument();
     expect(screen.getByText(product.category)).toBeInTheDocument();
-    expect(screen.getByText(product.rating.rate)).toBeInTheDocument();
-    expect(screen.getByText(product.rating.count)).toBeInTheDocument();
   });
 
   it("Should change quantity", () => {
@@ -140,10 +134,6 @@ describe("<ProductDetails />", () => {
       title: "Product 1",
       description: "Description 1",
       category: "Category 1",
-      rating: {
-        rate: 4,
-        count: 10,
-      },
     };
 
     (useProducts as jest.Mock).mockReturnValue({
@@ -178,10 +168,6 @@ describe("<ProductDetails />", () => {
       title: "Product 1",
       description: "Description 1",
       category: "Category 1",
-      rating: {
-        rate: 4,
-        count: 10,
-      },
     };
 
     (useProducts as jest.Mock).mockReturnValue({
@@ -222,10 +208,6 @@ describe("<ProductDetails />", () => {
       title: "Product 1",
       description: "Description 1",
       category: "Category 1",
-      rating: {
-        rate: 4,
-        count: 10,
-      },
     };
 
     (useProducts as jest.Mock).mockReturnValue({
@@ -269,10 +251,6 @@ describe("<ProductDetails />", () => {
       description: "Description 1",
       category: "Category 1",
       quantity: 0,
-      rating: {
-        rate: 4,
-        count: 10,
-      },
     };
 
     (useProducts as jest.Mock).mockReturnValue({
@@ -318,10 +296,6 @@ describe("<ProductDetails />", () => {
           title: "Product 1",
           description: "Description 1",
           category: "Category 1",
-          rating: {
-            rate: 4,
-            count: 10,
-          },
         },
       ] as IProduct[],
       isLoading: false,
@@ -337,10 +311,6 @@ describe("<ProductDetails />", () => {
           title: "Product 1",
           description: "Description 1",
           category: "Category 1",
-          rating: {
-            rate: 4,
-            count: 10,
-          },
         },
       ],
       removeProduct: jest.fn(),

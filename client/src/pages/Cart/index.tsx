@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import data from "assets/lotties/empty.json";
 import useCart from "hooks/useCart";
 import * as S from "./Cart.styleds";
-import CartItem from "components/CartItem";
+import CartItem from "components/ProductItem";
 import SummaryOrder from "components/SummaryOrder";
 import Title from "components/Title";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +36,7 @@ const Cart = () => {
           <div data-testid="empty-lottie">
             <Lottie animationData={data} loop />
           </div>
-          <Title>Carrinho vázio</Title>
+          <Title>Carrinho vazio</Title>
         </S.EmptyWrapper>
       )}
     </S.Wrapper>

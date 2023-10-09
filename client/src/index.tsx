@@ -11,6 +11,8 @@ import ProductDetails from "pages/ProductDetails";
 import Cart from "pages/Cart";
 import NotFound from "pages/NotFound";
 import SuccessfulPayment from "pages/SuccessfulPayment";
+import Admin from "pages/Admin";
+import SaveProduct from "pages/SaveProduct";
 import theme from "helpers/themes";
 import GlobalStyle from "helpers/GlobalStyle";
 import Navbar from "components/Navbar";
@@ -35,6 +37,7 @@ root.render(
             items={[
               { text: "Produtos", route: "/" },
               { text: "Carrrinho", route: "/cart" },
+              { text: "Admin", route: "/admin" },
             ]}
           />
           <Routes>
@@ -42,6 +45,9 @@ root.render(
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/successful-payment" element={<SuccessfulPayment />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/product" element={<SaveProduct />} />
+            <Route path="/admin/product/:id" element={<SaveProduct />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

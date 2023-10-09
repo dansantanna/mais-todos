@@ -13,10 +13,13 @@ export const LogoMobile = styled.img.attrs({
   src: `${process.env.PUBLIC_URL}/images/favicon.webp`,
 })`
   height: 50px;
-  padding: 0 20px;
+  padding: 0;
   display: none;
   @media (max-width: 600px) {
     display: block;
+  }
+  @media (max-width: 400px) {
+    display: none;
   }
 `;
 
@@ -25,7 +28,7 @@ export const Wrapper = styled.nav`
   width: 100%;
   height: 92px;
   box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.15);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   position: sticky;
@@ -34,11 +37,10 @@ export const Wrapper = styled.nav`
 `;
 
 export const List = styled.ul`
-  display: flex;
-  gap: 8px;
+  display: inline-flex;
   height: 100%;
   align-items: center;
-  margin-left: 16px;
+  gap: 8px;
 `;
 
 const isActive = css`
@@ -56,17 +58,19 @@ export const Item = styled.li<{ "data-active": boolean }>`
   list-style: none;
   height: 100%;
   padding-bottom: 3px;
+  padding: 0 20px;
+
   ${(props) => props["data-active"] && isActive}
   &:hover {
     ${isActive}
   }
   a {
-    padding: 0 20px;
+    padding: 0;
     color: inherit;
     text-decoration: none;
     font-family: inherit;
     height: 100%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
   }
 `;

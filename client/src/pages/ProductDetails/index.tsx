@@ -66,12 +66,6 @@ const ProductDetails = () => {
         <Text>
           Categoria: <b>{product.category}</b>
         </Text>
-        <Text>
-          Avaliação: <b>{product.rating?.rate}</b> estrelas
-        </Text>
-        <Text>
-          Avaliadores: <b>{product.rating?.count}</b> usuários
-        </Text>
         <S.Actions>
           <ControlNumber
             min={0}

@@ -1,8 +1,12 @@
+import Text from "components/Text";
 import { styled } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  .required-char {
+    color: ${({ theme }) => theme.colors.error};
+  }
 `;
 
 export const Label = styled.label`
@@ -20,5 +24,10 @@ export const TextArea = styled.textarea`
   border-radius: 6px;
   padding: 16px;
   font-size: 16px;
-  min-height: 50px;
+  resize: none;
+`;
+
+export const ErrorMessage = styled(Text)`
+  color: ${({ theme }) => theme.colors.error};
+  font-weight: 500;
 `;

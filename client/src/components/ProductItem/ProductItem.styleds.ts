@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   border-bottom: 0.5px solid ${({ theme }) => theme.colors.main};
   padding: 16px 0;
   gap: 16px;
-  max-width: 800px;
   > * {
     flex: 1;
     display: flex;
@@ -28,7 +27,6 @@ export const Image = styled.img`
 `;
 
 export const Description = styled(Text)`
-  margin: 16px 0;
   display: -webkit-box;
   font-size: 16px;
   line-clamp: 3;
@@ -41,5 +39,14 @@ export const Description = styled(Text)`
 export const Actions = styled.div`
   flex-direction: row;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
+  flex: 1;
+  width: 100%;
+  margin-left: auto;
+  flex-wrap: wrap;
+`;
+
+export const Price = styled(Text)`
+  font-weight: 600;
+  font-size: 18px;
 `;

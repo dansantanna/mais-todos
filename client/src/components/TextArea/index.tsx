@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, forwardRef } from "react";
 
 import * as S from "./TextArea.styleds";
 
@@ -6,15 +6,11 @@ export interface TextAreaProps
   extends InputHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   label: string;
+  error?: string;
 }
 
-const TextArea = ({
-  label,
-  name,
-  required,
-  ...textAreaProps
-}: TextAreaProps) => {
-  return (
+const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ label, name, required, error, ...textAreaProps }, ref) => (
     <S.Wrapper>
       <S.Label htmlFor={name}>
         {label}
@@ -24,12 +20,13 @@ const TextArea = ({
         required={required}
         name={name}
         id={name}
+        ref={ref}
+        rows={3}
         {...textAreaProps}
       />
+      {error && <S.ErrorMessage>{error}</S.ErrorMessage>}
     </S.Wrapper>
-  );
-};
-
-TextArea.defaultProps = { rows: 3 };
+  )
+);
 
 export default TextArea;

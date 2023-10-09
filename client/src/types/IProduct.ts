@@ -6,8 +6,4 @@ export default interface IProduct {
   description: string;
   quantity?: number;
   category?: string;
-  rating?: {
-    rate: number;
-    count: number;
-  };
 }

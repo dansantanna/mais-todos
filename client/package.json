@@ -4,6 +4,7 @@
   "author": "Daniel Sant'Anna <danielcarlossantanna@gmail.com>",
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^3.3.1",
     "@stripe/react-stripe-js": "^2.3.1",
     "@stripe/stripe-js": "^2.1.7",
     "@tanstack/react-query": "^4.35.7",
@@ -19,12 +20,14 @@
     "notistack": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.47.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
     "stripe": "^13.9.0",
     "styled-components": "^6.0.8",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
+    "yup": "^1.3.2",
     "zustand": "^4.4.3"
   },
   "jest": {

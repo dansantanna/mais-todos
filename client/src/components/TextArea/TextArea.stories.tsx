@@ -8,6 +8,7 @@ export default {
     label: "TextArea label text",
     name: "storybook-textArea",
     value: "",
+    error: "",
     required: false,
   },
   argTypes: {

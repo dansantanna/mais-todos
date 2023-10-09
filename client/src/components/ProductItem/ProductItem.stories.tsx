@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import CartItem, { CartItemProps } from ".";
+import ProductItem, { ProductItemProps } from ".";
 
 export default {
-  title: "components/CartItem",
-  component: CartItem,
+  title: "components/ProductItem",
+  component: ProductItem,
   args: {
     title: "Product Lorem",
     description:
@@ -13,7 +13,11 @@ export default {
     price: 123.32,
   },
 };
-export const Component = ({ quantity, onChange, ...args }: CartItemProps) => {
+export const Component = ({
+  quantity,
+  onChange,
+  ...args
+}: ProductItemProps) => {
   const [quantityState, setQuantityState] = useState(quantity);
 
   useEffect(() => {
@@ -21,11 +25,11 @@ export const Component = ({ quantity, onChange, ...args }: CartItemProps) => {
   }, [quantity]);
 
   const handleChange = (value: number) => {
-    onChange(value);
+    onChange?.(value);
     setQuantityState(value);
   };
 
   return (
-    <CartItem {...args} quantity={quantityState} onChange={handleChange} />
+    <ProductItem {...args} quantity={quantityState} onChange={handleChange} />
   );
 };
